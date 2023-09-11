@@ -27,7 +27,6 @@ header{
     position: relative;
     padding: 0 2rem;
 }
-
 .navbar{
     width: 100%;
     height: 60px;
@@ -99,6 +98,9 @@ font-weight: bold;
     padding: 0.7rem;
     display: flex;
     justify-content: center;
+}
+.links li .active{
+    border-bottom: 1px solid white;
 }
 .dropdown_menu .action_btn{
     color: white;

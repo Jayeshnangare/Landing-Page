@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="navbar">
-         <div class="logo"><a href="#">Nav Bar</a></div>
-         <ul class="links">
-            <li><a href="hero">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="contact">Contact</a></li>
-         </ul>
-         <a href="#" class="action_btn">Get Started</a>
-         <div class="toggle_btn">
-            <i class="fa-solid fa-bars"></i>
-         </div>
+      <div class="navbar">
+        <div class="logo"><a href="#">Nav Bar</a></div>
+        <ul class="links">
+          <li><a href="hero" class="unactive">Home</a></li>
+          <li><a href="about" class="unactive">About</a></li>
+          <li><a href="services" class="unactive">Services</a></li>
+          <li><a href="contact" class="unactive">Contact</a></li>
+        </ul>
+        <a href="#" class="action_btn">Get Started</a>
+        <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
         </div>
+      </div>
 
-
-        <div class="dropdown_menu ">
-            <li><a href="hero">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li><a href="#" class="action_btn">Get Started</a></li>
-        </div>
+      <div class="dropdown_menu">   
+        <li><a href="hero">Home</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="services">Services</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="#" class="action_btn">Get Started</a></li>
+      </div>
     </header>
     <main>
-        <section id="hero">
-           <h1>Welcome</h1>
-           <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, vitae!
-            Lorem ipsum dolor sit amet consectetur <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quae.
-                adipisicing elit. Quisquam, ipsa.</p>
-        </section>
+      <section id="hero">
+        <h1>Welcome</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, vitae!
+          Lorem ipsum dolor sit amet consectetur <br />Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Cumque, quae. adipisicing elit.
+          Quisquam, ipsa.
+        </p>
+      </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        const toggleBtn = document.querySelector('.toggle_btn')
-        const toggleBtnIcon = document.querySelector('.toggle_btn i')
-        const dropdownmenu = document.querySelector('.dropdown_menu')
+      const toggleBtn = document.querySelector(".toggle_btn");
+      const toggleBtnIcon = document.querySelector(".toggle_btn i");
+      const dropdownmenu = document.querySelector(".dropdown_menu");
+      toggleBtn.onclick = function () {
+        dropdownmenu.classList.toggle("open");
+        const isOpen = dropdownmenu.classList.contains("open");
 
-        toggleBtn.onclick = function () {
-            dropdownmenu.classList.toggle('open')
-            const isOpen = dropdownmenu.classList.contains('open')
-            
-            toggleBtnIcon.classList = isOpen 
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars'
+        toggleBtnIcon.classList = isOpen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
 
-
-
-        }
+      gsap.from('.navbar',{
+         y:-20,
+         opactiy:0,
+         duration:2,
+         stagger:0.1,
+      })
+      gsap.from('#hero',{
+        y:-10,
+        opactiy:0,
+        duration:2,
+        repeat:-1,
+        yoyo:true
+      })
     </script>
-</body>
+  </body>
 </html>
